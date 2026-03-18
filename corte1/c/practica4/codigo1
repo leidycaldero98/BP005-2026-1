@@ -7,7 +7,7 @@ int main() {
     scanf("%d", &numero);
 
     if(numero>0){
-       printf("Elnumeroespositivo.\n");
+       printf("El numero es positivo.\n");
     }
 
     return 0;
