@@ -1,0 +1,27 @@
+#include <stdio.h>
+
+
+int main() {
+    int num1, num2, suma;
+
+
+    //Solicitar al usuario que ingrese dos números
+    printf("Ingrese el primer numero: ");
+    scanf("%d", &num1); // Captura el primer entero [4]
+
+
+    printf("Ingrese el segundo numero: ");
+    scanf("%d", &num2); //Captura el segundo entero [4]
+  
+
+    // Realizar la suma
+    suma = num1 + num2; // Suma utilizando el operador + [1, 3]
+
+
+    //Mostrar el resultado
+    printf("La suma de %d y %d es: %d\n", num1, num2, suma);
+
+
+return 0;
+
+} 
