@@ -1,0 +1,28 @@
+#include <stdio.h>
+
+
+int main() {
+    double num1, num2, suma;
+
+
+    //Solicitar al usuario que ingrese dos números
+    printf("Ingrese el primer numero (double): ");
+    // %lf se usa para leer valores double  [8]
+    scanf("%lf", &num1);
+
+
+    printf("Ingrese el segundo numero (double): ");
+    scanf("%lf", &num2);
+
+
+    // Calcular la suma
+    suma = num1 + num2;
+
+
+    // Mostrar el resultado con 2 decimales
+    printf("La suma de %.2f y %.2f es: %.2f\n", num1, num2, suma);
+
+
+return 0;
+
+}
