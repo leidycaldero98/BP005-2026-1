@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+   int main() {
+       char nombre[40];
+       char edad_str[10];
+       char promedio_str[10];
+       char inicial;
+
+       printf("Ingrese su nombre: ");
+       fgets (nombre,sizeof(nombre), stdin);
+
+       printf("Ingrese su edad: ");
+       fgets (edad_str, sizeof(edad_str), stdin);
+       int edad = atoi(edad_str);
+
+       printf("Ingrese su promedio: ");
+       fgets (promedio_str, sizeof(promedio_str), stdin);
+       float promedio = atof(promedio_str);
+
+       printf("Ingrese la inicial de su apellido: ");
+       inicial = getchar();
+
+       printf("\nResumen de datos ingresados:\n");
+       printf("Nombre: %s\n", nombre);
+       printf("Edad: %d\n", edad);
+       printf("Promedio: %.2f\n", promedio);
+       printf("Inicial del apellido: %c\n", inicial);
+
+ return 0;
+
+ }
