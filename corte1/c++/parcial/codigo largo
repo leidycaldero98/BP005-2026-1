@@ -2,7 +2,7 @@
 #include <stdbool.h>
 
 int main() {
-    // Mensaje de bienvenida
+    // Bienvenida
     printf("=======================================\n");
     printf("  Sistema de Analisis Academico y Acceso\n");
     printf("             a Laboratorio\n");
@@ -17,7 +17,7 @@ int main() {
     bool matriculaActiva, documentoPresentado, induccionAprobada, esMonitor;
     float promedio;
 
-    // Captura de datos
+    // Entrada de datos
     printf("Ingrese el codigo del estudiante: ");
     scanf("%d", &codigo);
 
@@ -30,55 +30,52 @@ int main() {
     printf("Ingrese la edad: ");
     scanf("%d", &edad);
 
-    // Captura y validación de notas
+    // Validación de notas
     do {
         printf("Ingrese la nota 1 (0.0 - 5.0): ");
         scanf("%f", &nota1);
-        if(nota1 < 0.0 || nota1 > 5.0)
-            printf("Nota invalida. Intente de nuevo.\n");
+        if(nota1 < 0.0 || nota1 > 5.0) printf("Nota invalida, intente nuevamente.\n");
     } while(nota1 < 0.0 || nota1 > 5.0);
 
     do {
         printf("Ingrese la nota 2 (0.0 - 5.0): ");
         scanf("%f", &nota2);
-        if(nota2 < 0.0 || nota2 > 5.0)
-            printf("Nota invalida. Intente de nuevo.\n");
+        if(nota2 < 0.0 || nota2 > 5.0) printf("Nota invalida, intente nuevamente.\n");
     } while(nota2 < 0.0 || nota2 > 5.0);
 
     do {
         printf("Ingrese la nota 3 (0.0 - 5.0): ");
         scanf("%f", &nota3);
-        if(nota3 < 0.0 || nota3 > 5.0)
-            printf("Nota invalida. Intente de nuevo.\n");
+        if(nota3 < 0.0 || nota3 > 5.0) printf("Nota invalida, intente nuevamente.\n");
     } while(nota3 < 0.0 || nota3 > 5.0);
 
     printf("Ingrese el valor de la matricula: ");
     scanf("%lf", &valorMatricula);
 
-    // Captura de 1 o 0 y conversión a bool
+    // Captura de 1 o 0 como bool
     printf("Tiene matricula activa? (1=si, 0=no): ");
     scanf("%d", &temp);
-    matriculaActiva = (temp == 1) ? true : false;
+    if(temp == 1) matriculaActiva = true; else matriculaActiva = false;
 
     printf("Presento documento/carne? (1=si, 0=no): ");
     scanf("%d", &temp);
-    documentoPresentado = (temp == 1) ? true : false;
+    if(temp == 1) documentoPresentado = true; else documentoPresentado = false;
 
     printf("Aprobo induccion de laboratorio? (1=si, 0=no): ");
     scanf("%d", &temp);
-    induccionAprobada = (temp == 1) ? true : false;
+    if(temp == 1) induccionAprobada = true; else induccionAprobada = false;
 
     printf("Es monitor del laboratorio? (1=si, 0=no): ");
     scanf("%d", &temp);
-    esMonitor = (temp == 1) ? true : false;
+    if(temp == 1) esMonitor = true; else esMonitor = false;
 
-    // Procesamiento de datos
+    // Procesamiento
     promedio = (nota1 + nota2 + nota3) / 3.0;
 
     // Código par o impar usando operador ternario
     printf("\nEl codigo del estudiante es %s.\n", (codigo % 2 == 0) ? "par" : "impar");
 
-    // Clasificación del desempeño académico
+    // Clasificación académica
     if(promedio < 3.0) {
         printf("Desempeno academico: Reprobado\n");
     } else if(promedio >= 3.0 && promedio < 4.0) {
@@ -89,15 +86,13 @@ int main() {
         printf("Desempeno academico: Excelente desempeño\n");
     }
 
-    // Condición de acceso al laboratorio
+    // Acceso al laboratorio con condicional anidado
     if(matriculaActiva && documentoPresentado && (induccionAprobada || esMonitor)) {
         printf("Acceso al laboratorio: Autorizado\n");
-
-        // Condicional anidado para decisión secundaria
         if(esMonitor) {
             printf("Aviso: Este estudiante es monitor del laboratorio.\n");
-        } else if(induccionAprobada) {
-            printf("Aviso: Este estudiante aprobó la induccion del laboratorio.\n");
+        } else {
+            printf("Aviso: Este estudiante aprobo la induccion de laboratorio.\n");
         }
     } else {
         printf("Acceso al laboratorio: Denegado\n");
