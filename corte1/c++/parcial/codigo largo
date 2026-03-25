@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdbool.h>
+#include <string.h>
 
 int main() {
     // Bienvenida
@@ -8,9 +9,9 @@ int main() {
     printf("             a Laboratorio\n");
     printf("=======================================\n\n");
 
-    // Declaración de variables
+    // Variables
     int codigo, edad, temp;
-    char nombre[50];
+    char nombre[100]; // permitimos nombres largos
     char inicialApellido;
     float nota1, nota2, nota3;
     double valorMatricula;
@@ -20,9 +21,12 @@ int main() {
     // Entrada de datos
     printf("Ingrese el codigo del estudiante: ");
     scanf("%d", &codigo);
+    getchar(); // limpiar el buffer
 
     printf("Ingrese el nombre del estudiante: ");
-    scanf("%s", nombre);
+    fgets(nombre, sizeof(nombre), stdin);
+    size_t len = strlen(nombre);
+    if(len > 0 && nombre[len-1] == '\n') nombre[len-1] = '\0'; // quitar salto de linea
 
     printf("Ingrese la inicial del apellido: ");
     scanf(" %c", &inicialApellido);
@@ -52,48 +56,46 @@ int main() {
     printf("Ingrese el valor de la matricula: ");
     scanf("%lf", &valorMatricula);
 
-    // Captura de 1 o 0 como bool
+    // 1 o 0 -> bool
     printf("Tiene matricula activa? (1=si, 0=no): ");
     scanf("%d", &temp);
-    if(temp == 1) matriculaActiva = true; else matriculaActiva = false;
+    matriculaActiva = (temp == 1) ? true : false;
 
     printf("Presento documento/carne? (1=si, 0=no): ");
     scanf("%d", &temp);
-    if(temp == 1) documentoPresentado = true; else documentoPresentado = false;
+    documentoPresentado = (temp == 1) ? true : false;
 
     printf("Aprobo induccion de laboratorio? (1=si, 0=no): ");
     scanf("%d", &temp);
-    if(temp == 1) induccionAprobada = true; else induccionAprobada = false;
+    induccionAprobada = (temp == 1) ? true : false;
 
     printf("Es monitor del laboratorio? (1=si, 0=no): ");
     scanf("%d", &temp);
-    if(temp == 1) esMonitor = true; else esMonitor = false;
+    esMonitor = (temp == 1) ? true : false;
 
-    // Procesamiento
-    promedio = (nota1 + nota2 + nota3) / 3.0;
+    // Calculo promedio
+    promedio = (nota1 + nota2 + nota3) / 3.0f;
 
-    // Código par o impar usando operador ternario
+    // Codigo par o impar (ternario)
     printf("\nEl codigo del estudiante es %s.\n", (codigo % 2 == 0) ? "par" : "impar");
 
-    // Clasificación académica
-    if(promedio < 3.0) {
+    // Clasificación academica
+    if(promedio < 3.0)
         printf("Desempeno academico: Reprobado\n");
-    } else if(promedio >= 3.0 && promedio < 4.0) {
+    else if(promedio >= 3.0 && promedio < 4.0)
         printf("Desempeno academico: Aprobado con desempeño aceptable\n");
-    } else if(promedio >= 4.0 && promedio < 4.5) {
+    else if(promedio >= 4.0 && promedio < 4.5)
         printf("Desempeno academico: Buen desempeño\n");
-    } else {
+    else
         printf("Desempeno academico: Excelente desempeño\n");
-    }
 
-    // Acceso al laboratorio con condicional anidado
+    // Acceso al laboratorio (condicional anidado)
     if(matriculaActiva && documentoPresentado && (induccionAprobada || esMonitor)) {
         printf("Acceso al laboratorio: Autorizado\n");
-        if(esMonitor) {
+        if(esMonitor)
             printf("Aviso: Este estudiante es monitor del laboratorio.\n");
-        } else {
+        else
             printf("Aviso: Este estudiante aprobo la induccion de laboratorio.\n");
-        }
     } else {
         printf("Acceso al laboratorio: Denegado\n");
     }
@@ -112,5 +114,6 @@ int main() {
     printf("Es monitor: %s\n", esMonitor ? "Si" : "No");
 
     printf("\nGracias por usar el sistema.\n");
+
     return 0;
 }
