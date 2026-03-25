@@ -1,0 +1,121 @@
+#include <stdio.h>
+#include <stdbool.h>
+
+int main() {
+    // Mensaje de bienvenida
+    printf("=======================================\n");
+    printf("  Sistema de Analisis Academico y Acceso\n");
+    printf("             a Laboratorio\n");
+    printf("=======================================\n\n");
+
+    // Declaración de variables
+    int codigo, edad, temp;
+    char nombre[50];
+    char inicialApellido;
+    float nota1, nota2, nota3;
+    double valorMatricula;
+    bool matriculaActiva, documentoPresentado, induccionAprobada, esMonitor;
+    float promedio;
+
+    // Captura de datos
+    printf("Ingrese el codigo del estudiante: ");
+    scanf("%d", &codigo);
+
+    printf("Ingrese el nombre del estudiante: ");
+    scanf("%s", nombre);
+
+    printf("Ingrese la inicial del apellido: ");
+    scanf(" %c", &inicialApellido);
+
+    printf("Ingrese la edad: ");
+    scanf("%d", &edad);
+
+    // Captura y validación de notas
+    do {
+        printf("Ingrese la nota 1 (0.0 - 5.0): ");
+        scanf("%f", &nota1);
+        if(nota1 < 0.0 || nota1 > 5.0)
+            printf("Nota invalida. Intente de nuevo.\n");
+    } while(nota1 < 0.0 || nota1 > 5.0);
+
+    do {
+        printf("Ingrese la nota 2 (0.0 - 5.0): ");
+        scanf("%f", &nota2);
+        if(nota2 < 0.0 || nota2 > 5.0)
+            printf("Nota invalida. Intente de nuevo.\n");
+    } while(nota2 < 0.0 || nota2 > 5.0);
+
+    do {
+        printf("Ingrese la nota 3 (0.0 - 5.0): ");
+        scanf("%f", &nota3);
+        if(nota3 < 0.0 || nota3 > 5.0)
+            printf("Nota invalida. Intente de nuevo.\n");
+    } while(nota3 < 0.0 || nota3 > 5.0);
+
+    printf("Ingrese el valor de la matricula: ");
+    scanf("%lf", &valorMatricula);
+
+    // Captura de 1 o 0 y conversión a bool
+    printf("Tiene matricula activa? (1=si, 0=no): ");
+    scanf("%d", &temp);
+    matriculaActiva = (temp == 1) ? true : false;
+
+    printf("Presento documento/carne? (1=si, 0=no): ");
+    scanf("%d", &temp);
+    documentoPresentado = (temp == 1) ? true : false;
+
+    printf("Aprobo induccion de laboratorio? (1=si, 0=no): ");
+    scanf("%d", &temp);
+    induccionAprobada = (temp == 1) ? true : false;
+
+    printf("Es monitor del laboratorio? (1=si, 0=no): ");
+    scanf("%d", &temp);
+    esMonitor = (temp == 1) ? true : false;
+
+    // Procesamiento de datos
+    promedio = (nota1 + nota2 + nota3) / 3.0;
+
+    // Código par o impar usando operador ternario
+    printf("\nEl codigo del estudiante es %s.\n", (codigo % 2 == 0) ? "par" : "impar");
+
+    // Clasificación del desempeño académico
+    if(promedio < 3.0) {
+        printf("Desempeno academico: Reprobado\n");
+    } else if(promedio >= 3.0 && promedio < 4.0) {
+        printf("Desempeno academico: Aprobado con desempeño aceptable\n");
+    } else if(promedio >= 4.0 && promedio < 4.5) {
+        printf("Desempeno academico: Buen desempeño\n");
+    } else {
+        printf("Desempeno academico: Excelente desempeño\n");
+    }
+
+    // Condición de acceso al laboratorio
+    if(matriculaActiva && documentoPresentado && (induccionAprobada || esMonitor)) {
+        printf("Acceso al laboratorio: Autorizado\n");
+
+        // Condicional anidado para decisión secundaria
+        if(esMonitor) {
+            printf("Aviso: Este estudiante es monitor del laboratorio.\n");
+        } else if(induccionAprobada) {
+            printf("Aviso: Este estudiante aprobó la induccion del laboratorio.\n");
+        }
+    } else {
+        printf("Acceso al laboratorio: Denegado\n");
+    }
+
+    // Resumen final
+    printf("\n========== RESUMEN DEL ESTUDIANTE ==========\n");
+    printf("Codigo: %d\n", codigo);
+    printf("Nombre: %s %c.\n", nombre, inicialApellido);
+    printf("Edad: %d\n", edad);
+    printf("Notas: %.2f, %.2f, %.2f\n", nota1, nota2, nota3);
+    printf("Promedio: %.2f\n", promedio);
+    printf("Valor matricula: %.2lf\n", valorMatricula);
+    printf("Matricula activa: %s\n", matriculaActiva ? "Si" : "No");
+    printf("Documento presentado: %s\n", documentoPresentado ? "Si" : "No");
+    printf("Aprobo induccion: %s\n", induccionAprobada ? "Si" : "No");
+    printf("Es monitor: %s\n", esMonitor ? "Si" : "No");
+
+    printf("\nGracias por usar el sistema.\n");
+    return 0;
+}
