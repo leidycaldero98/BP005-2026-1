@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdbool.h>
 
 int main() {
 
@@ -17,7 +18,7 @@ int main() {
     scanf("%d", &codigo);
 
     printf("Ingrese el nombre del estudiante: ");
-    scanf("%s", nombre);
+    scanf(" %[^\n]", nombre);  // Permite nombres con espacios
 
     printf("Ingrese la inicial del apellido: ");
     scanf(" %c", &inicialApellido);
@@ -65,7 +66,7 @@ int main() {
         printf("\nEl codigo es IMPAR\n");
     }
 
-    // Clasificación (if / else if / else)
+    // Clasificación
     if (promedio < 3.0) {
         printf("Desempeño: Reprobado\n");
     } else if (promedio < 4.0) {
@@ -76,14 +77,14 @@ int main() {
         printf("Desempeño: Excelente\n");
     }
 
-    // Acceso al laboratorio (operadores lógicos)
-    int acceso = (matriculaActiva == 1 && documento == 1 && (induccion == 1 || monitor == 1));
+    // Acceso al laboratorio (ahora con bool)
+    bool acceso = (matriculaActiva == 1 && documento == 1 && (induccion == 1 || monitor == 1));
 
     // Operador ternario
     printf("Acceso al laboratorio: %s\n", acceso ? "PERMITIDO" : "DENEGADO");
 
     // Condicional anidado
-    if (acceso == 1) {
+    if (acceso) {
         if (promedio >= 4.5) {
             printf("Acceso VIP al laboratorio\n");
         } else {
