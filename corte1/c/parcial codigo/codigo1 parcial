@@ -18,7 +18,7 @@ int main() {
     scanf("%d", &codigo);
 
     printf("Ingrese el nombre del estudiante: ");
-    scanf(" %[^\n]", nombre);  // Permite nombres con espacios
+    scanf(" %[^\n]", nombre);  
 
     printf("Ingrese la inicial del apellido: ");
     scanf(" %c", &inicialApellido);
