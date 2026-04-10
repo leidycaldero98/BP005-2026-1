@@ -1,0 +1,19 @@
+#include <stdio.h>
+int main() {
+    int opcion; 
+
+    do {
+        printf("\nMENU\n");
+        printf("1. Saludar\n");
+        printf("2. Despedirse\n");
+        printf("0. Salir\n");
+        printf("Seleccione una opcion: ");
+        scanf(" %d", &opcion);
+
+    } while (opcion != 0); 
+
+    return 0; 
+} 
+
+
+
