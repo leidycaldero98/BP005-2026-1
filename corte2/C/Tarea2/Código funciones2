@@ -1,0 +1,77 @@
+#include <stdio.h>
+
+void analizar(int v[], int n, int *suma, int *mayor, int *menor) {
+    int i;
+
+    *suma = 0;
+    *mayor = v[0];
+    *menor = v[0];
+
+    for (i = 0; i < n; i++) {
+        *suma += v[i];
+
+        if (v[i] > *mayor) {
+            *mayor = v[i];
+        }
+
+        if (v[i] < *menor) {
+            *menor = v[i];
+        }
+    }
+}
+
+void imprimirVector(int v[], int n) {
+    for (int i = 0; i < n; i++) {
+        printf("%d ", v[i]);
+    }
+    printf("\n");
+}
+
+float promedio(int suma, int n) {
+    return (float)suma / n;
+}
+
+int contarPares(int v[], int n) {
+    int contador = 0;
+    for (int i = 0; i < n; i++) {
+        if (v[i] % 2 == 0) {
+            contador++;
+        }
+    }
+    return contador;
+}
+
+int buscar(int v[], int n, int valor) {
+    for (int i = 0; i < n; i++) {
+        if (v[i] == valor) {
+            return i; // posición
+        }
+    }
+    return -1;
+}
+
+int main() {
+    int datos[5] = {8, 3, 15, 6, 10};
+    int suma, mayor, menor;
+
+    analizar(datos, 5, &suma, &mayor, &menor);
+
+    printf("Vector: ");
+    imprimirVector(datos, 5);
+
+    printf("Suma = %d\n", suma);
+    printf("Mayor = %d\n", mayor);
+    printf("Menor = %d\n", menor);
+    printf("Promedio = %.2f\n", promedio(suma, 5));
+
+    printf("Cantidad de pares = %d\n", contarPares(datos, 5));
+
+    int pos = buscar(datos, 5, 6);
+    if (pos != -1) {
+        printf("El número 6 está en la posición %d\n", pos);
+    } else {
+        printf("No se encontró el número\n");
+    }
+
+    return 0;
+}
