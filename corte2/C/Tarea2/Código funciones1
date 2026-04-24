@@ -1,0 +1,46 @@
+#include <stdio.h>
+
+void intercambiar(int *a, int *b) {
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
+void imprimir(int x, int y) {
+    printf("x = %d, y = %d\n", x, y);
+}
+
+void ordenar(int *a, int *b) {
+    if (*a > *b) {
+        intercambiar(a, b);
+    }
+}
+
+int sonIguales(int a, int b) {
+    return a == b;
+}
+
+int main() {
+    int x = 10;
+    int y = 20;
+
+    printf("Antes:\n");
+    imprimir(x, y);
+
+    intercambiar(&x, &y);
+
+    printf("Después de intercambiar:\n");
+    imprimir(x, y);
+
+    ordenar(&x, &y);
+    printf("Ordenados:\n");
+    imprimir(x, y);
+
+    if (sonIguales(x, y)) {
+        printf("Son iguales\n");
+    } else {
+        printf("No son iguales\n");
+    }
+
+    return 0;
+}
