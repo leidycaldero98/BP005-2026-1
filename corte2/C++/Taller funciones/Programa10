@@ -3,27 +3,27 @@
 
 using namespace std;
 
-/* Prototipos con el mismo nombre pero diferentes parametros */
-float area(float lado);                                       // Para el cuadrado
-float area(float base, float altura);                        // Para el rectangulo
-float area(float baseMayor, float baseMenor, float altura);  // Para el trapecio
+
+float area(float lado);                                       
+float area(float base, float altura);                       
+float area(float baseMayor, float baseMenor, float altura);  
 
 int main()
 {
-    /* Declaracion de variables con los datos del ejemplo */
+    
     float ladoCuadrado = 5.0;
     float baseRect = 8.0, alturaRect = 3.0;
     float bMayor = 8.0, bMenor = 4.0, hTrapecio = 5.0;
 
-    /* Variables para resultados */
+    
     float resCuadrado, resRectangulo, resTrapecio;
 
-    /* Llamadas a las funciones sobrecargadas */
+    
     resCuadrado = area(ladoCuadrado);
     resRectangulo = area(baseRect, alturaRect);
     resTrapecio = area(bMayor, bMenor, hTrapecio);
 
-    /* Presentacion de resultados */
+    
     cout << fixed << setprecision(2);
     cout << "Area del cuadrado: " << resCuadrado << endl;
     cout << "Area del rectangulo: " << resRectangulo << endl;
@@ -32,19 +32,19 @@ int main()
     return 0;
 }
 
-/* Definicion de funciones */
 
-// Cuadrado: A = lado * lado
+
+
 float area(float lado) {
     return lado * lado;
 }
 
-// Rectangulo: A = base * altura
+
 float area(float base, float altura) {
     return base * altura;
 }
 
-// Trapecio: A = ((B + b) * h) / 2
+
 float area(float baseMayor, float baseMenor, float altura) {
     return ((baseMayor + baseMenor) * altura) / 2.0;
 }
