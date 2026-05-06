@@ -1,0 +1,44 @@
+#include <iostream>
+
+using namespace std;
+
+/* Prototipos */
+int factorialIterativo(int n);
+int factorialRecursivo(int n);
+
+int main()
+{
+    /* Declaracion de variables */
+    int numero;
+
+    /* Solicitar datos */
+    cout << "Digite un numero entero no negativo: ";
+    cin >> numero;
+
+    if (numero < 0) {
+        cout << "Error: El numero debe ser no negativo." << endl;
+    } else {
+        /* Llamadas a funciones y presentacion directa */
+        cout << "Factorial iterativo: " << factorialIterativo(numero) << endl;
+        cout << "Factorial recursivo: " << factorialRecursivo(numero) << endl;
+    }
+
+    return 0;
+}
+
+/* Definicion de funciones */
+
+int factorialIterativo(int n) {
+    int resultado = 1;
+    for (int i = 1; i <= n; i++) {
+        resultado *= i;
+    }
+    return resultado;
+}
+
+int factorialRecursivo(int n) {
+    if (n <= 1) {
+        return 1;
+    }
+    return n * factorialRecursivo(n - 1);
+}
