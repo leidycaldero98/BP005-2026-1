@@ -2,17 +2,17 @@
 
 using namespace std;
 
-/* Prototipos */
+
 void leerMatriz(int m[][3], int filas);
 int sumarFila(int m[][3], int fila);
 void mostrarSumasPorFila(int m[][3], int filas);
 
 int main()
 {
-    /* Declaracion de variables */
+    
     int matriz[3][3];
 
-    /* Llamadas a funciones */
+    
     leerMatriz(matriz, 3);
 
     cout << "\nMatriz:" << endl;
@@ -23,13 +23,13 @@ int main()
         cout << endl;
     }
 
-    /* Presentacion de resultados */
+    
     mostrarSumasPorFila(matriz, 3);
 
     return 0;
 }
 
-/* Definicion de funciones */
+
 void leerMatriz(int m[][3], int filas) {
     for (int i = 0; i < filas; i++) {
         for (int j = 0; j < 3; j++) {
