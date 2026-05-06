@@ -1,0 +1,51 @@
+#include <stdio.h>
+
+/* Prototipos */
+int factorialIterativo(int n);
+int factorialRecursivo(int n);
+
+int main()
+{
+    /* Declaracion de variables */
+    int numero, resIterativo, resRecursivo;
+
+    /* Solicitar datos */
+    printf("Digite un numero entero no negativo: ");
+    scanf("%d", &numero);
+
+    /* Validacion basica */
+    if (numero < 0) {
+        printf("Error: El numero debe ser no negativo.\n");
+    } else {
+        /* Llamadas a funciones */
+        resIterativo = factorialIterativo(numero);
+        resRecursivo = factorialRecursivo(numero);
+
+        /* Presentacion de resultados */
+        printf("Factorial iterativo: %d\n", resIterativo);
+        printf("Factorial recursivo: %d\n", resRecursivo);
+    }
+
+    return 0;
+}
+
+/* Definicion de funciones */
+
+int factorialIterativo(int n) {
+    int resultado = 1;
+    for (int i = 1; i <= n; i++) {
+        resultado *= i;
+    }
+    return resultado;
+}
+
+int factorialRecursivo(int n) {
+    /* Caso base: el factorial de 0 o 1 es 1 */
+    if (n <= 1) {
+        return 1;
+    }
+    /* Caso recursivo: n! = n * (n-1)! */
+    else {
+        return n * factorialRecursivo(n - 1);
+    }
+}
