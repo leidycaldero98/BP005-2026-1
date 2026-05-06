@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-/* Prototipos */
+
 void leerNotas(float notas[], int n);
 float obtenerMayor(float notas[], int n);
 float obtenerMenor(float notas[], int n);
@@ -11,13 +11,13 @@ void mostrarReporte(float mayor, float menor, float promedio, int aprobadas, int
 
 int main()
 {
-    /* Declaracion de variables */
+    
     float notas[5];
     float mayor, menor, promedio;
     int aprobadas, noAprobadas;
     int n = 5;
 
-    /* Llamadas a funciones de procesamiento */
+
     leerNotas(notas, n);
     
     mayor = obtenerMayor(notas, n);
@@ -26,13 +26,13 @@ int main()
     aprobadas = contarAprobadas(notas, n);
     noAprobadas = contarNoAprobadas(notas, n);
 
-    /* Presentacion de resultados */
+    
     mostrarReporte(mayor, menor, promedio, aprobadas, noAprobadas);
 
     return 0;
 }
 
-/* Definicion de funciones */
+
 
 void leerNotas(float notas[], int n) {
     for (int i = 0; i < n; i++) {
