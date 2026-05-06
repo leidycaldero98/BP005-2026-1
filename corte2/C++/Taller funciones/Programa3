@@ -1,0 +1,47 @@
+#include <iostream>
+#include <iomanip>
+
+using namespace std;
+
+/* Prototipos */
+int esAprobado(float nota);
+void mostrarMensaje(float nota, int resultado);
+
+int main()
+{
+    /* Declaracion de variables */
+    float nota;
+    int resultado;
+
+    /* Solicitar datos */
+    cout << "Digite la nota: ";
+    cin >> nota;
+
+    /* Llamadas a funciones */
+    resultado = esAprobado(nota);
+
+    /* Presentacion de resultados */
+    mostrarMensaje(nota, resultado);
+
+    return 0;
+}
+
+/* Definicion de funciones */
+int esAprobado(float nota)
+{
+    if (nota >= 3.0) {
+        return 1;
+    } else {
+        return 0;
+    }
+}
+
+void mostrarMensaje(float nota, int resultado)
+{
+    cout << fixed << setprecision(2);
+    if (resultado == 1) {
+        cout << "La nota " << nota << " es aprobatoria." << endl;
+    } else {
+        cout << "La nota " << nota << " no es aprobatoria." << endl;
+    }
+}
