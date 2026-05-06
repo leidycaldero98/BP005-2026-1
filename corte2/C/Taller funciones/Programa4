@@ -1,0 +1,38 @@
+#include <stdio.h>
+
+/* Prototipos */
+int potencia(int base, int exponente);
+
+int main()
+{
+    /* Declaracion de variables */
+    int base, exponente, resultado;
+
+    /* Solicitar datos */
+    printf("Digite la base: ");
+    scanf("%d", &base);
+    printf("Digite el exponente: ");
+    scanf("%d", &exponente);
+
+    /* Llamadas a funciones */
+    resultado = potencia(base, exponente);
+
+    /* Presentacion de resultados */
+    printf("%d elevado a %d es %d\n", base, exponente, resultado);
+
+    return 0;
+}
+
+/* Definicion de funciones */
+int potencia(int base, int exponente)
+{
+    int acumulador = 1;
+    
+    /* Calculo mediante multiplicaciones sucesivas */
+    for(int i = 0; i < exponente; i++)
+    {
+        acumulador = acumulador * base;
+    }
+    
+    return acumulador;
+}
