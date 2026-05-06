@@ -1,30 +1,30 @@
 #include <stdio.h>
 
-/* Prototipos */
+
 void leerArreglo(int v[], int n);
 int obtenerMayor(int v[], int n);
 int obtenerMenor(int v[], int n);
 
 int main()
 {
-    /* Declaracion de variables */
+    
     int numeros[6];
     int mayor, menor;
     int tamano = 6;
 
-    /* Llamadas a funciones */
+    
     leerArreglo(numeros, tamano);
     mayor = obtenerMayor(numeros, tamano);
     menor = obtenerMenor(numeros, tamano);
 
-    /* Presentacion de resultados */
+    
     printf("Mayor: %d\n", mayor);
     printf("Menor: %d\n", menor);
 
     return 0;
 }
 
-/* Definicion de funciones */
+
 void leerArreglo(int v[], int n) {
     for (int i = 0; i < n; i++) {
         printf("Digite el elemento %d: ", i);
@@ -33,7 +33,7 @@ void leerArreglo(int v[], int n) {
 }
 
 int obtenerMayor(int v[], int n) {
-    int max = v[0]; // Asumimos que el primero es el mayor
+    int max = v[0]; 
     for (int i = 1; i < n; i++) {
         if (v[i] > max) {
             max = v[i];
@@ -43,7 +43,7 @@ int obtenerMayor(int v[], int n) {
 }
 
 int obtenerMenor(int v[], int n) {
-    int min = v[0]; // Asumimos que el primero es el menor
+    int min = v[0]; 
     for (int i = 1; i < n; i++) {
         if (v[i] < min) {
             min = v[i];
