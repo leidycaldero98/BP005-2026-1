@@ -2,30 +2,30 @@
 
 using namespace std;
 
-/* Prototipos */
+
 int potencia(int base, int exponente);
 
 int main()
 {
-    /* Declaracion de variables */
+    
     int base, exponente, resultado;
 
-    /* Solicitar datos */
+    
     cout << "Digite la base: ";
     cin >> base;
     cout << "Digite el exponente: ";
     cin >> exponente;
 
-    /* Llamadas a funciones */
+    
     resultado = potencia(base, exponente);
 
-    /* Presentacion de resultados */
+    
     cout << base << " elevado a " << exponente << " es " << resultado << endl;
 
     return 0;
 }
 
-/* Definicion de funciones */
+
 int potencia(int base, int exponente)
 {
     int acumulador = 1;
