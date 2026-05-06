@@ -1,17 +1,17 @@
 #include <stdio.h>
 
-/* Prototipos */
+
 void leerMatriz(int m[][3], int filas);
 void mostrarMatriz(int m[][3], int filas);
 int sumarMatriz(int m[][3], int filas);
 
 int main()
 {
-    /* Declaracion de variables */
+    
     int matriz[3][3];
     int sumaTotal;
 
-    /* Llamadas a funciones */
+    
     leerMatriz(matriz, 3);
     
     printf("Matriz:\n");
@@ -19,13 +19,13 @@ int main()
 
     sumaTotal = sumarMatriz(matriz, 3);
 
-    /* Presentacion de resultados */
+    
     printf("Suma total: %d\n", sumaTotal);
 
     return 0;
 }
 
-/* Definicion de funciones */
+
 void leerMatriz(int m[][3], int filas) {
     for (int i = 0; i < filas; i++) {
         for (int j = 0; j < 3; j++) {
@@ -40,7 +40,7 @@ void mostrarMatriz(int m[][3], int filas) {
         for (int j = 0; j < 3; j++) {
             printf("%d ", m[i][j]);
         }
-        printf("\n"); // Salto de linea al terminar cada fila
+        printf("\n"); 
     }
 }
 
