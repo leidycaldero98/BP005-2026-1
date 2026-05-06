@@ -1,0 +1,90 @@
+#include <iostream>
+#include <iomanip>
+
+using namespace std;
+
+/* Prototipos */
+void leerNotas(float notas[], int n);
+float obtenerMayor(float notas[], int n);
+float obtenerMenor(float notas[], int n);
+float calcularPromedioNotas(float notas[], int n);
+int contarAprobadas(float notas[], int n);
+int contarNoAprobadas(float notas[], int n);
+void mostrarReporte(float mayor, float menor, float promedio, int aprobadas, int noAprobadas);
+
+int main()
+{
+    float notas[5];
+    const int N = 5;
+
+    leerNotas(notas, N);
+
+    float mayor = obtenerMayor(notas, N);
+    float menor = obtenerMenor(notas, N);
+    float promedio = calcularPromedioNotas(notas, N);
+    int aprobadas = contarAprobadas(notas, N);
+    int noAprobadas = contarNoAprobadas(notas, N);
+
+    mostrarReporte(mayor, menor, promedio, aprobadas, noAprobadas);
+
+    return 0;
+}
+
+/* Definicion de funciones */
+
+void leerNotas(float notas[], int n) {
+    for (int i = 0; i < n; i++) {
+        cout << "Digite la nota " << i << ": ";
+        cin >> notas[i];
+    }
+}
+
+float obtenerMayor(float notas[], int n) {
+    float max = notas[0];
+    for (int i = 1; i < n; i++) {
+        if (notas[i] > max) max = notas[i];
+    }
+    return max;
+}
+
+float obtenerMenor(float notas[], int n) {
+    float min = notas[0];
+    for (int i = 1; i < n; i++) {
+        if (notas[i] < min) min = notas[i];
+    }
+    return min;
+}
+
+float calcularPromedioNotas(float notas[], int n) {
+    float suma = 0;
+    for (int i = 0; i < n; i++) {
+        suma += notas[i];
+    }
+    return suma / n;
+}
+
+int contarAprobadas(float notas[], int n) {
+    int contador = 0;
+    for (int i = 0; i < n; i++) {
+        if (notas[i] >= 3.0) contador++;
+    }
+    return contador;
+}
+
+int contarNoAprobadas(float notas[], int n) {
+    int contador = 0;
+    for (int i = 0; i < n; i++) {
+        if (notas[i] < 3.0) contador++;
+    }
+    return contador;
+}
+
+void mostrarReporte(float mayor, float menor, float promedio, int aprobadas, int noAprobadas) {
+    cout << "\nReporte final" << endl;
+    cout << fixed << setprecision(2);
+    cout << "Nota mayor: " << mayor << endl;
+    cout << "Nota menor: " << menor << endl;
+    cout << "Promedio: " << promedio << endl;
+    cout << "Aprobadas: " << aprobadas << endl;
+    cout << "No aprobadas: " << noAprobadas << endl;
+}
