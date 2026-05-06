@@ -1,0 +1,44 @@
+#include <stdio.h>
+
+/* Prototipos */
+float calcularArea(float base, float altura);
+float calcularPerimetro(float base, float altura);
+void mostrarResultados(float area, float perimetro);
+
+int main()
+{
+    /* Declaracion de variables */
+    float base, altura, area, perimetro;
+
+    /* Solicitar datos */
+    printf("Digite la base: ");
+    scanf("%f", &base);
+    printf("Digite la altura: ");
+    scanf("%f", &altura);
+
+    /* Llamadas a funciones */
+    area = calcularArea(base, altura);
+    perimetro = calcularPerimetro(base, altura);
+
+    /* Presentacion de resultados */
+    mostrarResultados(area, perimetro);
+
+    return 0;
+}
+
+/* Definicion de funciones */
+float calcularArea(float base, float altura)
+{
+    return base * altura;
+}
+
+float calcularPerimetro(float base, float altura)
+{
+    return 2 * (base + altura);
+}
+
+void mostrarResultados(float area, float perimetro)
+{
+    printf("Area: %.2f\n", area);
+    printf("Perimetro: %.2f\n", perimetro);
+}
