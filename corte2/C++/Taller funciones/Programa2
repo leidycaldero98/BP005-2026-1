@@ -1,0 +1,49 @@
+#include <iostream>
+#include <iomanip>
+
+using namespace std;
+
+/* Prototipos */
+float calcularArea(float base, float altura);
+float calcularPerimetro(float base, float altura);
+void mostrarResultados(float area, float perimetro);
+
+int main()
+{
+    /* Declaracion de variables */
+    float b, h, a, p;
+
+    /* Solicitar datos */
+    cout << "Digite la base: ";
+    cin >> b;
+    cout << "Digite la altura: ";
+    cin >> h;
+
+    /* Llamadas a funciones */
+    a = calcularArea(b, h);
+    p = calcularPerimetro(b, h);
+
+    /* Presentacion de resultados */
+    mostrarResultados(a, p);
+
+    return 0;
+}
+
+/* Definicion de funciones */
+float calcularArea(float base, float altura)
+{
+    return base * altura;
+}
+
+float calcularPerimetro(float base, float altura)
+{
+    return 2 * (base + altura);
+}
+
+void mostrarResultados(float area, float perimetro)
+{
+    // fixed y setprecision(2) aseguran el formato de dos decimales
+    cout << fixed << setprecision(2);
+    cout << "Area: " << area << endl;
+    cout << "Perimetro: " << perimetro << endl;
+}
