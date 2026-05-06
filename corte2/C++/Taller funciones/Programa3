@@ -3,30 +3,30 @@
 
 using namespace std;
 
-/* Prototipos */
+
 int esAprobado(float nota);
 void mostrarMensaje(float nota, int resultado);
 
 int main()
 {
-    /* Declaracion de variables */
+    
     float nota;
     int resultado;
 
-    /* Solicitar datos */
+    
     cout << "Digite la nota: ";
     cin >> nota;
 
-    /* Llamadas a funciones */
+    
     resultado = esAprobado(nota);
 
-    /* Presentacion de resultados */
+    
     mostrarMensaje(nota, resultado);
 
     return 0;
 }
 
-/* Definicion de funciones */
+
 int esAprobado(float nota)
 {
     if (nota >= 3.0) {
