@@ -1,0 +1,32 @@
+#include <iostream>
+#include <iomanip> // Para configurar los decimales en la salida
+
+using namespace std;
+
+/* Prototipos */
+float convertirAFahrenheit(float celsius);
+
+int main()
+{
+    /* Declaracion de variables */
+    float celsius, fahrenheit;
+
+    /* Solicitar datos */
+    cout << "Digite la temperatura en Celsius: ";
+    cin >> celsius;
+
+    /* Llamadas a funciones */
+    fahrenheit = convertirAFahrenheit(celsius);
+
+    /* Presentacion de resultados */
+    // fixed y setprecision(2) ayudan a mostrar el formato 0.00
+    cout << "Temperatura en Fahrenheit: " << fixed << fahrenheit << endl;
+
+    return 0;
+}
+
+/* Definicion de funciones */
+float convertirAFahrenheit(float celsius)
+{
+    return (9.0 / 5.0) * celsius + 32;
+}
