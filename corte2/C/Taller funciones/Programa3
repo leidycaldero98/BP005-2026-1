@@ -1,32 +1,32 @@
 #include <stdio.h>
 
-/* Prototipos */
+
 int esAprobado(float nota);
 void mostrarMensaje(float nota, int resultado);
 
 int main()
 {
-    /* Declaracion de variables */
+    
     float nota;
     int resultado;
 
-    /* Solicitar datos */
+    
     printf("Digite la nota: ");
     scanf("%f", &nota);
 
-    /* Llamadas a funciones */
+    
     resultado = esAprobado(nota);
 
-    /* Presentacion de resultados */
+    
     mostrarMensaje(nota, resultado);
 
     return 0;
 }
 
-/* Definicion de funciones */
+
 int esAprobado(float nota)
 {
-    /* Retornar 1 si es >= 3.0, de lo contrario retornar 0 */
+    
     if (nota >= 3.0) {
         return 1;
     } else {
