@@ -3,7 +3,7 @@
 
 using namespace std;
 
-/* Prototipos */
+
 void leerArreglo(int v[], int n);
 int sumarArreglo(int v[], int n);
 float calcularPromedio(int suma, int n);
@@ -11,13 +11,13 @@ void mostrarArreglo(int v[], int n);
 
 int main()
 {
-    /* Declaracion de variables */
+    
     int numeros[5];
     int suma;
     float promedio;
     int tamano = 5;
 
-    /* Llamadas a funciones */
+    
     leerArreglo(numeros, tamano);
 
     cout << "Elementos del arreglo:" << endl;
@@ -26,14 +26,14 @@ int main()
     suma = sumarArreglo(numeros, tamano);
     promedio = calcularPromedio(suma, tamano);
 
-    /* Presentacion de resultados */
+    
     cout << "\nSuma: " << suma << endl;
     cout << fixed << setprecision(2) << "Promedio: " << promedio << endl;
 
     return 0;
 }
 
-/* Definicion de funciones */
+
 void leerArreglo(int v[], int n) {
     for (int i = 0; i < n; i++) {
         cout << "Digite el elemento " << i << ": ";
