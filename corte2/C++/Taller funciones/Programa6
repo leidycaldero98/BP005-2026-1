@@ -1,0 +1,55 @@
+#include <iostream>
+
+using namespace std;
+
+/* Prototipos */
+void leerArreglo(int v[], int n);
+int obtenerMayor(int v[], int n);
+int obtenerMenor(int v[], int n);
+
+int main()
+{
+    /* Declaracion de variables */
+    int numeros[6];
+    int mayor, menor;
+    const int TAM = 6;
+
+    /* Llamadas a funciones */
+    leerArreglo(numeros, TAM);
+    mayor = obtenerMayor(numeros, TAM);
+    menor = obtenerMenor(numeros, TAM);
+
+    /* Presentacion de resultados */
+    cout << "Mayor: " << mayor << endl;
+    cout << "Menor: " << menor << endl;
+
+    return 0;
+}
+
+/* Definicion de funciones */
+void leerArreglo(int v[], int n) {
+    for (int i = 0; i < n; i++) {
+        cout << "Digite el elemento " << i << ": ";
+        cin >> v[i];
+    }
+}
+
+int obtenerMayor(int v[], int n) {
+    int max = v[0];
+    for (int i = 1; i < n; i++) {
+        if (v[i] > max) {
+            max = v[i];
+        }
+    }
+    return max;
+}
+
+int obtenerMenor(int v[], int n) {
+    int min = v[0];
+    for (int i = 1; i < n; i++) {
+        if (v[i] < min) {
+            min = v[i];
+        }
+    }
+    return min;
+}
