@@ -1,0 +1,30 @@
+#include <iostream>
+
+void mostrarArreglo(int *datos, int n) {
+
+    int i;
+
+    if (datos == nullptr) {
+
+        std::cout << "El arreglo no es valido."
+                  << std::endl;
+
+        return;
+    }
+
+    for (i = 0; i < n; i++) {
+
+        std::cout << datos[i] << " ";
+    }
+
+    std::cout << std::endl;
+}
+
+int main() {
+
+    int datos[5] = {8, 3, 15, 6, 10};
+
+    mostrarArreglo(datos, 5);
+
+    return 0;
+}
